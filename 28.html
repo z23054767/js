@@ -1,0 +1,88 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .section {
+            width: 370px;
+            height: 400px;
+            position: relative;
+            display: block;
+            float: left;
+            margin: 10px;
+        }
+
+        .section img {
+            width: 370px;
+            height: 400px;
+
+        }
+
+        .section p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+            background: rgba(255, 255, 255, 0.7);
+            display: none;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <a href="#" class="section">
+            <img src="qq.png">
+            <p>1.QQQQQQQQQQQQQQQQQQQQQQ</p>
+        </a>
+        <a href="#" class="section">
+            <img src="qq.png">
+            <p>2.QQQQQQQQQQQQQQQQQQQQQQ</p>
+        </a>
+        <a href="#" class="section">
+            <img src="qq.png">
+            <p>3.QQQQQQQQQQQQQQQQQQQQQQ</p>
+        </a>
+        <a href="#" class="section">
+            <img src="qq.png">
+            <p>4.QQQQQQQQQQQQQQQQQQQQQQ</p>
+        </a>
+        <a href="#" class="section">
+            <img src="qq.png">
+            <p>5.QQQQQQQQQQQQQQQQQQQQQQ</p>
+        </a>
+        <a href="#" class="section">
+            <img src="qq.png">
+            <p>6.QQQQQQQQQQQQQQQQQQQQQQ</p>
+        </a>
+    </div>
+</body>
+<script type="text/javascript">
+    var Obox = document.getElementById("box");
+    var Onew = Obox.getElementsByTagName("a");
+    for (var i = 0; i < Onew.length; i++) {
+            Onew[i].onmouseover=function(){
+                var Otitle=this.getElementsByTagName("p")[0];
+                Otitle.style.display="block";
+               }
+            Onew[i].onmouseout=function(){
+                var Otitle=this.getElementsByTagName("p")[0];
+                Otitle.style.display="none";
+            }
+
+        }
+</script>
+
+</html>

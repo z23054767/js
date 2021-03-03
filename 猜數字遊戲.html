@@ -1,0 +1,67 @@
+<!--HTML註解-->
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>猜數字遊戲</title>
+    <style>
+        #num {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            font-size: 50px;
+            line-height: 100px;
+            text-align: center;
+            margin: 0 auto;
+            margin-left: 20px;
+        }
+
+        #bt {
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            margin-left: 90px;
+        }
+
+        h3 {
+            margin-left: 75px
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>猜數字遊戲</h3>
+    <br>
+    <br>
+    <br>
+    <p>現在已生成1~100的數字，猜中有獎</p>
+    <input type="text" id="num">
+    <br>
+    <br>
+    <input type="button" id="bt" value="確定">
+
+    <script>
+        var otext = document.getElementById("num");
+        var obt = document.getElementById("bt");
+        var random = ((parseInt(Math.random() * 100)) + 1);//隨機生成1-100的數值//
+        obt.onclick = function () {
+            var ennum = Number(otext.value);      //將輸入字串值，轉成數值//
+            if (ennum > 100 || ennum < 1) {       //判斷是否在1-100，若不是則輸出重新輸入//
+                alert("請重新輸入");
+            } else if (ennum > random) {          //判斷輸入是否比隨機數大，若是則輸出大了//
+                alert("大了");
+            } else if (ennum < random) {          //判斷輸入是否比隨機數小，若是則輸出小了//
+                alert("小了");
+            } else if (ennum = random) {          //判斷輸入是否與隨機數相等，若是則輸出恭喜你中獎了!!!//
+                alert("恭喜你中獎了!!!");
+            }
+        }
+    </script>
+</body>
+
+
+</html>

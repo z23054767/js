@@ -1,0 +1,38 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .actvie {
+            background: red;
+            color: white;
+            border: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="button" value="按鈕1">
+    <input type="button" value="按鈕2">
+    <input type="button" value="按鈕3">
+</body>
+<script type="text/javascript">
+    var Obt = document.getElementsByTagName("input");
+
+    for (var i = 0; i < Obt.length; i++) {
+        Obt[i].onclick = function () {
+            for (var j = 0; j < Obt.length; j++) {
+               Obt[j].className = '';
+
+            }
+            this.className='actvie';
+        }
+
+    }
+</script>
+
+</html>

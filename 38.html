@@ -1,0 +1,49 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <p>123;345;555、759;,222,777;,555;555;;777;,345, ,QQ</p>
+        <button onclick="tidyInput();">QQ</button>
+    </div>
+    <div>
+        <input type="text">
+        <button onclick="tidyInput(document.getElementsByTagName('input')[0].value);">送出</button>
+    </div>
+</body>
+<script type="text/javascript">
+    // function tidyInput() {
+    //     var temp = document.getElementsByTagName('p')[0].innerHTML;
+    //     var replaceToComma = temp.replace(/;/g, ',').replace(/、/g, ',').replace(/;/g, ',').replace(/(^s*)|(s*$)/g, "");
+    //     var temparr = replaceToComma.split(',').map((item) => parseInt(item, 10));
+    //     //sort,remove not a number and remove duplicates
+    //     var finalarr = (temparr) => temparr.sort((a, b) => a - b).filter((el) => el != NaN).filter((el, i) =>
+    //         temparr.indexOf(el) === i).join(',');
+    //     alert(finalarr(temparr));
+    // }
+
+    function tidyInput(input) {
+        var replaceToComma = input.replace(/;/g, ',').replace(/、/g, ',').replace(/\s/g,'');
+        var temparr = replaceToComma.split(',');
+        //sort,remove not a number and remove duplicates
+        var finalarr = temparr.filter((value, index, self) =>
+            self.indexOf(value) === index).join(',');
+        //var finalarr = (temparr) => temparr.sort((a, b) => a - b).filter((el) => el != NaN).filter((el, i) =>
+        //temparr.indexOf(el) === i).join(',');
+        //input = finalarr(temparr);
+        //return (input);
+        alert(finalarr);
+    }
+</script>
+
+</html>

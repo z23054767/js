@@ -1,0 +1,36 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+
+</body>
+<script type="text/javascript">
+    var a = 100;
+    var b = a;
+    b = 200;
+    //  alert(a);
+    var arr1 = [1, 2, 3, 4];
+    var arr2 = arr1;
+    arr2[0] = 100;
+    var arr3 = [3, 4, 5, 6];
+    var arr4 = [];
+    for (index in arr3) {
+        arr4[index] = arr3[index];
+    }
+    arr4[0] = 100;
+    alert(arr3);
+    alert(arr4);
+</script>
+
+</html>

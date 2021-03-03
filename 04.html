@@ -1,0 +1,46 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+     ul{
+        width: 200px;
+        border: 1px solid gray;
+     }
+     a{
+         text-decoration: none;
+         color: black;
+     }
+    </style>
+
+</head>
+
+<body>
+    <!-- <ul>
+       <li><a href="#">上海</a></li>
+       <li><a href="#">北京</a></li>
+       <li><a href="#">廣州</a></li>
+       <li><a href="#">香港</a></li>
+    </ul> -->
+    <script >
+         var a="上海";
+         var b="北京";
+         var c="廣州";
+         var d="香港";
+         var list="";
+        list=list+"<ul>";
+            list=list+'<li> <a href="#">'+a+'</a>'+'</li>';
+            list=list+'<li> <a href="#">'+b+'</a>'+'</li>';
+            list=list+'<li> <a href="#">'+c+'</a>'+'</li>';
+            list=list+'<li> <a href="#">'+d+'</a>'+'</li>';
+        list=list+"</ul>";
+        // console.log(list);
+         document.write(list);
+    </script>
+</body>
+
+
+</html>

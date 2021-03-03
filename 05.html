@@ -1,0 +1,29 @@
+<!--HTML註解-->
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+   <input type="text" placeholder="輸入你的名字" id="name" value="">
+   <input type="button" value="輸入完成" id="bt">
+   <script>
+       var oText= document.getElementById("name");
+       var oBt=document.getElementById("bt");
+       oBt.onclick=function(){
+        //點擊之後的事情//
+        alert("hello"+oText.value);
+       }
+   </script>
+</body>
+
+
+</html>

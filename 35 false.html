@@ -1,0 +1,190 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello!!Welcome to here~</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .pos1 {
+            text-decoration: none;
+            color: white;
+            background: red;
+            position: absolute;
+            top: 265px;
+            left: 0px;
+        }
+
+        .pos2 {
+            text-decoration: none;
+            color: white;
+            background: red;
+            position: absolute;
+            top: 265px;
+            right: 0px;
+        }
+
+        #box {
+            height: 530px;
+            width: 800px;
+            background: red;
+            position: relative;
+            margin: 0px 50px auto;
+        }
+
+        #box .top {
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        #box .top p {
+            overflow: hidden;
+        }
+
+        #box .context {
+            height: 470px;
+            overflow: hidden;
+        }
+
+        #box .context img {
+            width: 800px;
+        }
+
+        #box .box2 {
+            text-align: center;
+        }
+
+        #box .box2 a {
+            text-decoration: none;
+            height: 30px;
+            width: 30px;
+            background-color: black;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 15px;
+        }
+
+        #box .box2 .active {
+            background-color: purple;
+        }
+
+        #box .box2 img {
+            display: block;
+            height: 46px;
+            width: 80px;
+            position: absolute;
+            bottom: 30px;
+            left: 360px;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <div class="top">
+            <h3>Hello!!Welcome to here~</h3>
+        </div>
+        <div class="context">
+            <img id="pt1" src="img\Kayle_Splash_0.jpg">
+            <img id="pt2" src="img\Kayle_Splash_1.jpg">
+            <img id="pt3" src="img\Kayle_Splash_2.jpg">
+            <img id="pt4" src="img\Kayle_Splash_3.jpg">
+            <img id="pt5" src="img\Kayle_Splash_4.jpg">
+            <img id="pt6" src="img\Kayle_Splash_5.jpg">
+            <img id="pt7" src="img\Kayle_Splash_6.jpg">
+            <img id="pt8" src="img\background.jpg">
+        </div>
+        <div class="box2">
+            <a href="#pt1">1</a>
+            <a href="#pt2">2</a>
+            <a href="#pt3">3</a>
+            <a href="#pt4">4</a>
+            <a href="#pt5">5</a>
+            <a href="#pt6">6</a>
+            <a href="#pt7">7</a>
+            <a href="#pt8">8</a>
+            <img id="pt" src="img\Kayle_Splash_0.jpg">
+        </div>
+        <a class="pos1" href="#"><span>上一張</span></a>
+        <a class="pos2" href="#"><span>下一張</span></a>
+    </div>
+
+</body>
+<script type="text/javascript">
+    var Obox = document.getElementById("box"); //取得id box
+    var Otop = Obox.getElementsByClassName("top")[0]; //取得class top
+    var Oh3 = Otop.getElementsByTagName("h3")[0]; //取得標籤 h3
+    var Obox2 = Obox.getElementsByClassName("box2")[0]; //取得class box2
+    var Oacolor = Obox2.getElementsByTagName("a"); //取得標籤 a
+    var Oimg = Obox2.getElementsByTagName("img")[0]; //取得小圖標籤
+    var Optt = Obox.getElementsByClassName("context")[0]; //取得圖片
+    var imgnames = ['Kayle_Splash_0.jpg', 'Kayle_Splash_1.jpg', 'Kayle_Splash_2.jpg', 'Kayle_Splash_3.jpg',
+        'Kayle_Splash_4.jpg', 'Kayle_Splash_5.jpg', 'Kayle_Splash_6.jpg', 'background.jpg'
+    ]; //圖片名字
+    //滑鼠點擊按鈕事件
+    var index = 0;
+    Oh3.innerHTML = imgnames[index];
+    for (var j = 0; j < Oacolor.length; j++) {
+        Oacolor[j].index = j;
+        Oacolor[j].onclick = function () {
+            index = this.index;
+        }
+    }
+
+    for (var i = 0; i < Oacolor.length; i++) {
+         //滑鼠移入按鈕事件
+        Oacolor[i].onmouseover = function () {
+            Oimg.style.display="block";
+            Oimg.src='img/'+imgnames[this.index];
+            this.className = "active";
+        }
+        Oacolor[i].className = "";
+        //滑鼠移出按鈕事件
+        Oacolor[i].onmouseout = function () {
+            Oimg.style.display="none";
+            this.className = "";
+        }
+
+        this.className = "active";
+    }
+    //下一張
+    var Opt = Optt.getElementsByTagName("img")[0];
+    var Opos2 = Obox.getElementsByClassName("pos2"); //取得按鈕
+    for (var a = 0; a < Opos2.length; a++) {
+        Opos2[a].onclick = function () {
+            index++;
+            if (index > imgnames.length - 1) {
+                index = 0;
+            }
+            Oh3.innerHTML = imgnames[index];
+            Opt.src = 'img/' + imgnames[index];
+            Optt[this.index].style.display="none";
+        }
+    }
+    //上一張
+    var Opos1 = Obox.getElementsByClassName("pos1"); //取得按鈕
+    for (var c = Opos1.length - 1; c >= 0; c--) {
+        Opos1[c].onclick = function () {
+            index--;
+            if (index < 0) {
+                index = imgnames.length - 1;
+            }
+            Oh3.innerHTML = imgnames[index];
+            Opt.src = 'img/' + imgnames[index];
+            Optt[this.index].style.display="none";
+        }
+    }
+</script>
+
+</html>

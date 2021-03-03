@@ -1,0 +1,48 @@
+<!--HTML註解-->
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid grey;
+            text-align: center;
+        }
+
+        #text {
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="text" id="test">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="box">
+        <h3 id="text">0</h3>
+        <input type="button" id="bt" value="點我試試">
+    </div>
+    <script>
+        var OText = document.getElementById("text");
+        var Obt = document.getElementById("bt");
+        var Otest=document.getElementById("test");
+        var index = 0;
+        Obt.onclick = function () {
+            index = index + 1;
+            OTextv=index;
+            Otest.value=index;
+        }
+    </script>
+</body>
+
+
+</html>

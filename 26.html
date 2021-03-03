@@ -1,0 +1,40 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+
+</body>
+<script type="text/javascript">
+    var arr = [12, 23, 1, 13, 4, 21, 18, 17, 10];
+    var max;
+    var i,j;
+    for(i=0;i<arr.length-1;i++)//控制趟數
+    {
+       for(j=0;j<arr.length-1-i;j++)//已排好的值
+       {
+           if(arr[j]>arr[j+1])
+           {
+              max=arr[j];
+              arr[j]=arr[j+1];
+              arr[j+1]=max;
+           }
+       }
+
+    }
+
+
+    document.write(arr);
+</script>
+
+</html>

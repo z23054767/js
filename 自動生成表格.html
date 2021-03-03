@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <input type="text" placeholder="請輸入行" id="rows">
+  <input type="text" placeholder="請輸入列" id="cols">
+  <input type="button" value="生成" id="bt">
+  <div id="table"></div>
+  <br>
+  <br>
+  <br>
+  <script>
+    var oText1 = document.getElementById("rows");
+    var oText2 = document.getElementById("cols");
+    var oBt = document.getElementById("bt");
+    var otable = document.getElementById("table");
+
+    oBt.onclick = function () {
+      var rows = Number(oText1.value);
+      var cols = Number(oText2.value);
+      var table = '<table border="1" width="500" height="300" cellspacing="0">';
+      for (var i = 0; i < rows; i++) {
+        table += "<tr>";
+        for (var j = 0; j < cols; j++) {
+          table += "<td></td>";
+        }
+        table += "</tr>"
+      }
+      table += "<table>";
+      otable.innerHTML = table;
+    }
+  </script>
+
+</body>
+
+</html>

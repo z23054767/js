@@ -1,0 +1,192 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 800px;
+            height: 530px;
+            background: red;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #box .title {
+            color: white;
+            line-height: 30px;
+            font-size: 20px;
+            border-bottom: 1px solid gray;
+        }
+
+        #box .big {
+            width: 800px;
+            height: 470px;
+            display: block;
+        }
+
+        #box .back,
+        #box .next {
+            position: absolute;
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            background: red;
+            color: white;
+            line-height: 30px;
+            text-decoration: none;
+            top: 250px;
+        }
+
+        #box .back {
+            left: 0px;
+        }
+
+        #box .next {
+            right: 0px;
+        }
+
+        #box .page i {
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            text-align: center;
+            display: inline-block;
+            background: black;
+            color: white;
+            border-radius: 15px;
+            margin: 0 4px;
+            font-size: 20px;
+            font-style: normal;
+        }
+
+        #box .page .active {
+            background: purple;
+        }
+
+        #box .small {
+            width: 130px;
+            height: 80px;
+            position: absolute;
+            bottom: 30px;
+            left: 330px;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <!-- title -->
+        <h3 class="title"></h3>
+
+        <img class="big" src="img/Kayle_Splash_0.jpg">
+
+        <a href="#" class="back">上一頁</a>
+        <a href="#" class="next">下一頁</a>
+
+        <p class="page">
+            <!-- <i>1</i>
+      <i>2</i>
+      <i>3</i> -->
+        </p>
+
+        <img class="small" src="img/Kayle_Splash_0.jpg">
+    </div>
+
+</body>
+<script type="text/javascript">
+    //box
+    var Obox = document.getElementById("box");
+
+    var Otitle = Obox.getElementsByClassName("title")[0];
+
+    var Obig = Obox.getElementsByClassName("big")[0];
+
+    var Osmall = Obox.getElementsByClassName("small")[0];
+
+    var Oback = Obox.getElementsByClassName("back")[0];
+
+    var Onext = Obox.getElementsByClassName("next")[0];
+
+    var Opage = Obox.getElementsByClassName("page")[0];
+
+    var imageName = ['Kayle_Splash_0.jpg', 'Kayle_Splash_1.jpg', 'Kayle_Splash_2.jpg', 'Kayle_Splash_3.jpg',
+        'Kayle_Splash_4.jpg', 'Kayle_Splash_5.jpg', 'Kayle_Splash_6.jpg', 'background.jpg'
+    ];
+
+    var index = 0;
+
+    //默認顯示
+    Obig.src = 'img/' + imageName[index];
+    Otitle.innerHTML = imageName[0];
+
+    //title
+    //big
+    //small
+    //back
+    Oback.onclick = function () {
+        index--;
+        if (index < 0) {
+            index = imageName.length - 1;
+        }
+        change();
+    }
+    //next
+    Onext.onclick = function () {
+        index++;
+        if (index > imageName.length - 1) {
+            index = 0;
+        }
+        change();
+    }
+
+    var str = '';
+    for (var i = 0; i < imageName.length; i++) {
+        if (i == 0) {
+            str += "<i class='active'>" + (i+1) + "</i>"
+        } else {
+            str += '<i>' + (i+1) + '</i>';
+        }
+        Opage.innerHTML = str;
+    }
+    //下標
+
+    var Oi = Obox.getElementsByTagName("i");
+
+    for (var i = 0; i < Oi.length; i++) {
+        Oi[i].index = i;
+        Oi[i].onclick = function () {
+            index = this.index;
+            change();
+        }
+        Oi[i].onmouseover = function () {
+            Osmall.style.display = "block";
+            Osmall.src = 'img/' + imageName[this.index];
+        }
+        Oi[i].onmouseout = function () {
+            Osmall.style.display = "none";
+        }
+    }
+
+    function change() {
+        Obig.src = 'img/' + imageName[index];
+        Otitle.innerHTML = imageName[index];
+
+        for (var i = 0; i < Oi.length; i++) {
+            Oi[i].className = "";
+        }
+        Oi[index].className = "active";
+    }
+</script>
+
+</html>

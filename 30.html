@@ -1,0 +1,58 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bt {
+            width: 65px;
+            height: 65px;
+            background: url(img/icon_00.png);
+            float: left;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+    <div class="bt"></div>
+
+</body>
+<script type="text/javascript">
+    var Obt = document.getElementsByClassName("bt");
+    // for (var i = 0; i < Obt.length; i++) {
+    //     Obt[i].src = "img/icon_00.png";
+    //     Obt[i].onclick = function () {
+    //     if(this.src=="img/icon_00.png")
+    //       {
+    //         this.style.backgroundImage="url(img/icon_01.png)";
+    //         this.src="img/icon_01.png";
+    //       }else{
+    //         this.style.backgroundImage="url(img/icon_00.png)";
+    //         this.src="img/icon_00.png";
+    //       }
+    //     }
+    // }
+    for (var i = 0; i < Obt.length; i++) {
+        Obt[i].src = "img/icon_00.png";
+        Obt[i].ishow = true;
+        Obt[i].onclick = function () {
+            this.ishow = !this.ishow;
+            this.style.backgroundImage = this.ishow ? "url(img/icon_00.png)" : "url(img/icon_01.png)";
+        }
+    }
+</script>
+
+</html>

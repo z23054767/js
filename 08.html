@@ -1,0 +1,63 @@
+<!--HTML註解-->
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+   <input type="text" id="text1">
+   <input type="text" id="text2">
+   <input type="button" value="加法" id="bt1">
+   <input type="button" value="減法" id="bt2">
+   <input type="button" value="乘法" id="bt3">
+   <input type="button" value="除法" id="bt4">
+   <input type="button" value="取餘" id="bt5">
+   <script>
+        var in1=document.getElementById("text1");
+        var in2=document.getElementById("text2");
+        var obt1=document.getElementById("bt1");
+        var obt2=document.getElementById("bt2");
+        var obt3=document.getElementById("bt3");
+        var obt4=document.getElementById("bt4");
+        var obt5=document.getElementById("bt5");
+
+
+        obt1.onclick=function(){
+            var num1=Number(in1.value);
+            var num2=Number(in2.value);
+            alert(num1+num2);
+        }
+        obt2.onclick=function(){
+            var num1=Number(in1.value);
+            var num2=Number(in2.value);
+            alert(num1-num2);
+        }
+        obt3.onclick=function(){
+            var num1=Number(in1.value);
+            var num2=Number(in2.value);
+            alert(num1*num2);
+        }
+        obt4.onclick=function(){
+            var num1=Number(in1.value);
+            var num2=Number(in2.value);
+            alert(num1/num2);
+        }
+        obt5.onclick=function(){
+            var num1=Number(in1.value);
+            var num2=Number(in2.value);
+            alert(num1%num2);
+        }
+
+   </script>
+</body>
+
+
+</html>

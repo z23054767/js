@@ -1,0 +1,119 @@
+<!--HTML註解-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      *{
+          padding: 0;
+          margin: 0;
+      }
+      li{
+          list-style: none;
+      }
+      #box{
+          width: 250px;
+          border: 1px solid black;
+          margin: 30px;
+      }
+      #box h3{
+          border: 1px solid black;
+          height: 30px;
+          line-height: 30px;
+          padding-left: 20px;
+          background: blue url(D:/js/img/ico1.gif) no-repeat 7px center;
+      }
+      #box ul li{
+          padding-left: 30px;
+          line-height: 30px;
+          border: 1px solid black;
+
+      }
+      #box ul .active{
+          background: purple;
+          color: white;
+      }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <div class="section">
+            <h3>我的好友<span>(3/10)</span></h3>
+            <ul>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+            </ul>
+        <div class="section">
+            <h3>朋友<span>(3/10)</span></h3>
+            <ul>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+            </ul>
+            <div class="section">
+            <h3>同學<span>(3/10)</span></h3>
+            <ul>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+              <li>我的好友</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+   var Obox=document.getElementById("box");
+   var asection=Obox.getElementsByTagName("div");
+   var currentLi=null;
+   for(i=0;i<asection.length;i++)
+   {
+      var Oh3=asection[i].getElementsByTagName("h3")[0];
+      Oh3.isshow=true;
+      Oh3.index=i;
+      Oh3.onclick=function(){
+       this.isshow=!this.isshow;
+       var Olist=asection[this.index].getElementsByTagName("ul")[0];
+       if(this.isshow)
+       {
+          Olist.style.display="block";
+          this.style.backgroundImage="url(img/ico1.gif)"
+       }else
+       {
+          Olist.style.display="none";
+          this.style.backgroundImage="url(img/ico2.gif)"
+       }
+      }
+      var aFriend =asection[i].getElementsByTagName("li");
+      for(var j=0;j<aFriend.length;j++)
+      {
+          aFriend[j].onclick=function(){
+              //清除全部樣式
+              if(currentLi)
+              {
+                  currentLi.className="";
+              }
+                currentLi =this;
+                currentLi.className='active';
+          }
+      }
+   }
+
+</script>
+
+</html>
